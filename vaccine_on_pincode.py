@@ -13,13 +13,21 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 options = Options()
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+import time
 
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
+ChromeOptions = webdriver.ChromeOptions()
+ChromeOptions.add_argument("window-size=1920x1480")
+ChromeOptions.add_argument("disable-dev-shm-usage")
+Driver = webdriver.Chrome(chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install())
 options.binary_location = GOOGLE_CHROME_BIN
 options.add_argument('--disable-gpu')
 options.add_argument('--no-sandbox')
 options.headless = True
-driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , chrome_options=options)
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH)
 driver.get("https://glauniversity.in:8070/LeadManagement/ShowResult")
 s,e = 9080060,9080070
 for i in range(s,e):
