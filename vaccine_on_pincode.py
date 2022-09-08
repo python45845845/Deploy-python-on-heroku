@@ -13,7 +13,6 @@ import pytz
 
 tele_auth_token = "5672053615:AAGRLsunpPWBSpldtOG32Gle_C_WTfrgNYo" # Authentication token provided by Telegram bot
 tel_group_id = "himnandiandu"          # Telegram group name
-IST = pytz.timezone('Asia/Kolkata')        # Indian Standard Time - Timezone
 header = {'User-Agent': 'Chrome/84.0.4147.105 Safari/537.36'} # Header for using cowin api
 
 def send_msg_on_telegram(msg):
