@@ -8,12 +8,12 @@ from selenium.webdriver.chrome.options import Options
 import os
 CHROMEDRIVER_PATH = os.environ.get('CHROMEDRIVER_PATH', '/usr/local/bin/chromedriver')
 GOOGLE_CHROME_BIN = os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin/google-chrome')
-options = Options()
-options.binary_location = GOOGLE_CHROME_BIN
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
 options.add_argument('--disable-gpu')
-options.add_argument('--no-sandbox')
-options.headless = True
-driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH , chrome_options=options)
 driver.get("https://glauniversity.in:8070/LeadManagement/ShowResult")
 s,e = 9080060,9080070
 for i in range(s,e):
