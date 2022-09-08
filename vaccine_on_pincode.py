@@ -10,11 +10,6 @@ import requests
 from datetime import datetime, timedelta
 import time
 import pytz
-# from os import environ
-
-# Define all the constants
-time_interval = 10 # (in seconds) Specify the frequency of code execution
-PINCODE = "110028"
 
 tele_auth_token = "5672053615:AAGRLsunpPWBSpldtOG32Gle_C_WTfrgNYo" # Authentication token provided by Telegram bot
 tel_group_id = "himnandiandu"          # Telegram group name
@@ -30,8 +25,3 @@ def send_msg_on_telegram(msg):
     else:
         print ("Could not send Message")
 
-
-if __name__ == "__main__":    
-    while True:
-        get_availability_data()
-        time.sleep(time_interval)
